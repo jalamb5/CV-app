@@ -1,10 +1,13 @@
+/* eslint-disable react/prop-types */
+import Forms from "./forms"
+
 function Card({ fields }) {
   return (
     <>
       <button>Move</button>
       <button>X</button>
       <div>
-        {fields}
+        <Forms type={fields} />
       </div>
       <button>+</button>
     </>

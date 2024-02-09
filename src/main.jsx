@@ -6,6 +6,8 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <General />
+    <Card fields={"genInfo"} />
+    <Card fields={"education"} />
+    <Card fields={"experience"} />
   </React.StrictMode>,
 )
