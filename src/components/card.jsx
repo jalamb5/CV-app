@@ -2,6 +2,13 @@
 import Forms from "./forms"
 
 function Card({ fields }) {
+
+  const addCard = (fields) => {
+    <div>
+      <Card fields={fields} />
+    </div>
+  }
+
   return (
     <>
       <button>Move</button>
@@ -9,7 +16,7 @@ function Card({ fields }) {
       <div>
         <Forms type={fields} />
       </div>
-      <button>+</button>
+      <button onClick={addCard}>+</button>
     </>
   )
 }
