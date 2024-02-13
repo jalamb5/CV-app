@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 import General from './general'
 import Education from './education'
 import Experience from './experience'
@@ -6,12 +7,10 @@ import Experience from './experience'
 function Card({ fields, type }) {
   const types = {general: <General />, education: <Education />, experience: <Experience />}
 
+  const [additionalCards, setAdditionalCards] = useState([]);
+
   const addCard = () => {
-    return (
-      <div>
-        {types[type]}
-      </div>
-    )
+    setAdditionalCards([...additionalCards, types[type]]);
   }
 
   return (
@@ -21,7 +20,11 @@ function Card({ fields, type }) {
       <div>
         {fields}
       </div>
-      <button onClick = {() => console.log(type)}>+</button>
+      <button onClick = {addCard}>+</button>
+
+      {additionalCards.map((card, index) => (
+        <div key={index}>{card}</div>
+      ))}
     </>
   )
 }
