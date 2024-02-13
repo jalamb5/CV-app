@@ -27,7 +27,7 @@ function Experience() {
   );
 
   return (
-    <Card fields={content} />
+    <Card fields={content} type={"experience"} />
   )
 }
 

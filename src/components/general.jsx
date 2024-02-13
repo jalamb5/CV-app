@@ -23,7 +23,7 @@ function General() {
   );
 
   return (
-    <Card fields={content} />
+    <Card fields={content} type={'general'}/>
   )
 }
 

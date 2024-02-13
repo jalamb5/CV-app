@@ -1,11 +1,17 @@
 /* eslint-disable react/prop-types */
+import General from './general'
+import Education from './education'
+import Experience from './experience'
 
-function Card({ fields }) {
+function Card({ fields, type }) {
+  const types = {general: <General />, education: <Education />, experience: <Experience />}
 
-  const addCard = (fields) => {
-    <div>
-      <Card fields={fields} />
-    </div>
+  const addCard = () => {
+    return (
+      <div>
+        {types[type]}
+      </div>
+    )
   }
 
   return (
@@ -15,7 +21,7 @@ function Card({ fields }) {
       <div>
         {fields}
       </div>
-      <button onClick = {() => console.log(addCard)}>+</button>
+      <button onClick = {() => console.log(type)}>+</button>
     </>
   )
 }

@@ -23,7 +23,7 @@ function Education() {
   );
 
   return (
-    <Card fields={content} />
+    <Card fields={content} type={"education"} />
   )
 }
 
