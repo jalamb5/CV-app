@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Forms from "./forms"
 
 function Card({ fields }) {
 
@@ -14,9 +13,9 @@ function Card({ fields }) {
       <button>Move</button>
       <button>X</button>
       <div>
-        <Forms type={fields} />
+        {fields}
       </div>
-      <button onClick={addCard}>+</button>
+      <button onClick = {() => console.log(addCard)}>+</button>
     </>
   )
 }
