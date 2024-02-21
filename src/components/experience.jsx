@@ -2,8 +2,17 @@ import Card from "./card";
 
 function Experience() {
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const payload = Object.fromEntries(formData);
+
+    console.log(payload);
+  }
+
   const content = (
-    <form action="" method="get" className="cards experience">
+    <form onSubmit={handleSubmit} className="experience">
     <div>
       <label htmlFor="company">Company: </label>
       <input type="text" name="company" id="company" required />

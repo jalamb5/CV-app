@@ -1,30 +1,29 @@
-import { useState } from "react";
 import Card from "./card";
 
 function General() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: ""
-  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const payload = Object.fromEntries(formData);
+
+    console.log(payload);
   }
 
   const content = (
-    <form onSubmit={handleSubmit} className="general">
+    <form onSubmit={handleSubmit}>
     <div>
       <label htmlFor="name">Name: </label>
-      <input onChange={(e) => setFormData({...formData, name: e.target.value})} value={formData.name} type="text" name="name" id="name" required />
+      <input type="text" name="name" id="name" required />
     </div>
     <div>
       <label htmlFor="email">Email: </label>
-      <input onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email} type="email" name="email" id="email" required />
+      <input type="email" name="email" id="email" required />
     </div>
     <div>
       <label htmlFor="phone">Phone: </label>
-      <input onChange={(e) => setFormData({...formData, phone: e.target.value})} value={formData.phone} type="tel" name="phone" id="phone" />
+      <input type="tel" name="phone" id="phone" />
     </div>
     <div>
       <input type="submit" value="Save" className="button"/>
