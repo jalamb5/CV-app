@@ -43,7 +43,7 @@ function General() {
             required
           />
         ) : (
-          <div>{formData.name}</div>
+          <>{formData.name}</>
         )}
       </div>
       <div>
@@ -58,7 +58,7 @@ function General() {
             required
           />
         ) : (
-          <div>{formData.email}</div>
+          <>{formData.email}</>
         )}
       </div>
       <div>
@@ -72,7 +72,7 @@ function General() {
             onChange={handleChange}
           />
         ) : (
-          <div>{formData.phone}</div>
+          <>{formData.phone}</>
         )}
       </div>
       <div>
