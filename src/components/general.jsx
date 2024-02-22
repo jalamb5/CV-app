@@ -5,7 +5,7 @@ function General() {
   const initialFormData = {
     name: "",
     email: "",
-    phone: "",
+    phone: ""
   };
 
   const [formData, setFormData] = useState(initialFormData);

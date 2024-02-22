@@ -1,43 +1,106 @@
+import { useState } from "react";
 import Card from "./card";
 
 function Experience() {
+  const initialFormData = {
+    company: "",
+    title: "",
+    years: "",
+    description: "",
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+  const [editMode, setEditMode] = useState(true); // Set to true initially to show input fields
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const payload = Object.fromEntries(formData);
+    setEditMode(false);
+  };
 
-    console.log(payload);
-  }
+  const handleEditClick = () => {
+    setEditMode(true);
+  };
 
   const content = (
-    <form onSubmit={handleSubmit} className="experience">
-    <div>
-      <label htmlFor="company">Company: </label>
-      <input type="text" name="company" id="company" required />
-    </div>
-    <div>
-      <label htmlFor="title">Title: </label>
-      <input type="email" name="title" id="title" required />
-    </div>
-    <div>
-      <label htmlFor="years">Years: </label>
-      <input type="number" name="years" id="years" />
-    </div>
-    <div>
-      <label htmlFor="description">Description: </label>
-      <textarea name="description" id="description"></textarea>
-    </div>
-    <div>
-      <input type="submit" value="Save" />
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="company">Company: </label>
+        {editMode ? (
+          <input
+            type="text"
+            name="company"
+            id="company"
+            value={formData.company}
+            onChange={handleChange}
+            required
+          />
+        ) : (
+          <>{formData.company}</>
+        )}
+      </div>
+      <div>
+        <label htmlFor="title">Title: </label>
+        {editMode ? (
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+          />
+        ) : (
+          <>{formData.title}</>
+        )}
+      </div>
+      <div>
+        <label htmlFor="years">Years: </label>
+        {editMode ? (
+          <input
+            type="text"
+            name="years"
+            id="years"
+            value={formData.years}
+            onChange={handleChange}
+          />
+        ) : (
+          <>{formData.years}</>
+        )}
+      </div>
+      <div>
+        <label htmlFor="description">Description: </label>
+        {editMode ? (
+          <textarea
+            name="description"
+            id="description"
+            value={formData.description}
+            onChange={handleChange}
+          ></textarea>
+        ) : (
+          <>{formData.description}</>
+        )}
+      </div>
+      <div>
+        {!editMode && (
+          <button type="button" onClick={handleEditClick} className="button">
+            Edit
+          </button>
+        )}
+        {editMode && <input type="submit" value="Save" className="button" />}
+      </div>
     </form>
   );
 
-  return (
-    <Card fields={content} type={"experience"} />
-  )
+  return <Card fields={content} type={"experience"} />;
 }
 
-export default Experience
+export default Experience;
