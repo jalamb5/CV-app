@@ -25,7 +25,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
@@ -34,16 +33,16 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
 }
 
-button {
+button, input[type="submit"] {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.4em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -66,4 +65,32 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.cards {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-remove {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add, .remove {
+  font-size: 1.1rem;
+  line-height: .75;
+}
+
+input, textarea {
+  min-width: 100%;
+}
+
+textarea {
+  margin-bottom: -.4rem;
+}
+
+input[type="submit"] {
+  margin-top: .4rem;
 }

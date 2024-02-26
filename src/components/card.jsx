@@ -15,15 +15,18 @@ function Card({ fields, type }) {
     setAdditionalCards([...additionalCards, types[type]]);
   }
 
+  const classList = `${type} cards`
+
   return (
     <>
-      <div className={type} id={id} >
-        <button>Move</button>
-        <button onClick={() => document.getElementById(id).style.display = 'none'}>X</button>
+      <div className={classList} id={id} >
+        <div className='add-remove'>
+          <button className='remove' onClick={() => document.getElementById(id).style.display = 'none'}>X</button>
+          <button className='add' onClick = {addCard}>+</button>
+        </div>
         <div>
           {fields}
         </div>
-        <button onClick = {addCard}>+</button>
       </div>
       {additionalCards.map((card) => (
           <>{card}</>
