@@ -28,6 +28,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 1000px;
 }
 
 h1 {
@@ -100,3 +101,8 @@ textarea {
 input[type="submit"] {
   margin-top: .4rem;
 }
+
+.hide button, .hide .hidable {
+  display: none;
+}
+

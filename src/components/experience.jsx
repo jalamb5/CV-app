@@ -89,7 +89,7 @@ function Experience() {
           <>{formData.description}</>
         )}
       </div>
-      <div>
+      <div className="hidable">
         {!editMode && (
           <button type="button" onClick={handleEditClick} className="button">
             Edit

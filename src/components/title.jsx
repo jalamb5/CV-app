@@ -40,7 +40,7 @@ function Title() {
             <h1>{formData.pagetitle}</h1>
           )}
         </div>
-        <div>
+        <div className="hidable">
           {!editMode && (
             <button type="button" onClick={handleEditClick} className="button">
               Edit

@@ -20,7 +20,7 @@ function Card({ fields, type }) {
   return (
     <>
       <div className={classList} id={id} >
-        <div className='add-remove'>
+        <div className='add-remove hidable'>
           <button className='remove' onClick={() => document.getElementById(id).style.display = 'none'}>X</button>
           <button className='add' onClick = {addCard}>+</button>
         </div>
