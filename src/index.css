@@ -67,6 +67,12 @@ button:focus-visible {
   }
 }
 
+#pagetitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .cards {
   margin: 1rem;
   display: flex;
