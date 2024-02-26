@@ -7,7 +7,7 @@ function View() {
 
   return (
     <>
-      <div>
+      <div className="view">
         <button type="button" onClick={handleViewClick}>View CV</button>
       </div>
     </>
